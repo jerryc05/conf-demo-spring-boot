@@ -1,0 +1,26 @@
+type Session {
+  session_id: ID!
+  session_name: String!
+  session_description: String!
+  session_length: Int!
+}
+
+type Query {
+  list: [Session]!
+  get(id: ID!): Session
+}
+
+type Mutation {
+  create(
+    session_name: String!
+    session_description: String!
+    session_length: Int!
+  ): Session
+  delete(id: ID!): Session
+  update(
+    id: ID!
+    session_name: String!
+    session_description: String!
+    session_length: Int!
+  ): Session
+}

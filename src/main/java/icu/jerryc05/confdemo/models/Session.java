@@ -2,9 +2,12 @@ package icu.jerryc05.confdemo.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity(name = "sessions")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Session {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

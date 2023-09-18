@@ -2,9 +2,13 @@ package icu.jerryc05.confdemo.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity(name = "speakers")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Speaker {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +21,7 @@ public class Speaker {
   private byte[] speaker_photo;
 
   @ManyToMany(mappedBy = "speakers")
+  @JsonIgnore
   private List<Session> sessions;
 
   public byte[] getSpeaker_photo() {
